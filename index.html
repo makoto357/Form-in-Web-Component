@@ -7,19 +7,72 @@
   <script defer src="/form.js"></script>
   <title>Document</title>
   <style>
+    body {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
     label {
       color: green
+    }
+    input {
+      accent-color: rgba(26 197 103);
+    }
+    .wrap {
+      max-width: 400px;
     }
   </style>
 </head>
 <body>
-  <label>Hello from DOM</label>
-  <div>
-  <todo-item checked>Hello from Shadow DOM
-    <span slot="description">This is a description.</span>
-  </todo-item>
-  <todo-item>Hello from Shadow DOM</todo-item>
-  <todo-item>Hello from Shadow DOM</todo-item>
+  <div class="wrap">
+    <msc-ez-video
+      src="https://blog.lalacube.com/mei/video/tunnel.mp4"
+      poster="https://blog.lalacube.com/mei/img/msc-ez-video/tunnel.png"
+      width="16"
+      height="9"
+      muted
+      autoplay
+      loop
+      controls
+      title="<msc-ez-video /> demo"
+      artist="mei's studio"
+    ></msc-ez-video>
   </div>
+  
+  <script type="module">
+  import { MscEzVideo } from './mjs/wc-msc-ez-video.js';
+  
+  const config = {
+    width: 16,
+    height: 9,
+    src: 'https://blog.lalacube.com/mei/video/tunnel.mp4',
+    poster: 'https://blog.lalacube.com/mei/img/msc-ez-video/tunnel.png',
+    muted: true,
+    autoplay: true,
+    controls: true,
+    loop: true,
+    crossorigin: 'anonymous',
+    title: '<msc-ez-video /> demo',
+    artist: 'mei\'s studio'
+  };
+
+  </script>
+  <label>Hello from DOM</label>
+  <form>
+    <label>
+      <input type="checkbox">
+        <span class="description">Hello from Shadow DOM</span>
+      </input>
+    </label>
+    <todo-item checked>Hello from Shadow DOM
+      <span slot="description">This is a description.</span>
+    </todo-item>
+    <todo-item>Hello from Shadow DOM</todo-item>
+    <todo-item>Hello from Shadow DOM</todo-item>
+  </form>
 </body>
 </html>
